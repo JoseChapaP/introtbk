@@ -1,1 +1,50 @@
-<p>landing works!</p>
+<div class="col-12 mainContainer">
+    <div class="headerTitle">
+        <h1>Aumenta tus ventas con Webpay</h1>
+        <p>Y comienza a recibir pagos sin necesidad de contar con un sitio web</p>
+    </div>
+    <div class="col-12 mainInfo">
+        <div class="mainInfo-panelA"></div>
+        <div class="mainInfo-panelB">
+            <h2 class="mainInfo-panelB_title">¿Qué es webpay.cl?</h2>
+            <p class="mainInfo-panelB_text">Es el link de pago, que te permitirá vender a través de internet desde cualquier lugar y hora, sin necesitad de tener una página web. Solo debes crear tu link de pago personalizado y compartirlo con tus clientes.</p>
+            <button type="button" class="mainInfo-panelB_button mainButton" (click)="goToHire()">Quiero contratar</button>
+            <p class="mainInfo-panelB_info">* Si ya tienes webpay.cl, pronto podrás acceder a la nueva y más moderna plataforma de Webpay.cl 2.0</p>
+        </div>
+        <div class="mainInfo-panelC">
+            <div class="mainInfo-panelC-icon iconCart"></div>
+            <div class="mainInfo-panelC-icon iconStore"></div>
+            <div class="mainInfo-panelC-icon iconCircle"></div>
+        </div>
+    </div>
+    <div class="col-12 characteristics">
+
+        <div class="characteristics-side">
+            <div class="characteristics-item" *ngFor="let item of characteristicsLeft; let i = index" [ngClass]="{'hideThis': !seeMoreOpen && i > 5}">
+                <div class="characteristics-item_icon">
+                    <em class="icon-checkmark-circle-2 iconCheck"></em>
+                </div>
+                <div class="characteristics-item_text">
+                    {{item.text}}
+                </div>
+            </div>
+        </div>
+        <div class="characteristics-side">
+            <div class="characteristics-item" *ngFor="let item of characteristicsRight" [ngClass]="{'hideThis': !seeMoreOpen}">
+                <div class="characteristics-item_icon">
+                    <em class="icon-checkmark-circle-2 iconCheck"></em>
+                </div>
+                <div class="characteristics-item_text">
+                    {{item.text}}
+                </div>
+            </div>
+        </div>
+
+        <div class="characteristics-seeMore" *ngIf="!seeMoreOpen">
+            <button type="button" class="characteristics-seeMore_button" (click)="seeMore()">Ver más <em class="icon-arrow-ios-downward iconDown"></em></button>
+        </div>
+        <div class="characteristics-hideMobile">
+            <button type="button" class="characteristics-hideMobile_button mainButton" (click)="goToHire()">Quiero contratar</button>
+        </div>
+    </div>
+</div>

@@ -1,1 +1,151 @@
-/* You can add global styles to this file, and also import other style files */
+@import './assets/styles/icons.scss';
+
+@font-face {
+    font-family: "Roboto-Regular";
+    src: url(./assets/fonts/Roboto.otf);
+}
+@font-face {
+    font-family: "Roboto-Bold";
+    src: url(./assets/fonts/RobotoBold.otf);
+}
+@font-face {
+    font-family: "Roboto-Light";
+    src: url(./assets/fonts/RobotoLight.otf);
+}
+
+$magent: #D5006C;
+$white: #FFFFFF;
+$black: #000000;
+$black2: #030047;
+$gray: #707382;
+$green: #15CC96;
+$purple: #6B196B;
+$blue: #007EFF;
+$regular: 'Roboto-Regular';
+$bold: 'Roboto-Bold';
+$light: 'Roboto-Light';
+
+html {
+    scroll-behavior: smooth;
+}
+body{
+    font-family: $light;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.mainButton{background:$magent;color:$white;border:none;border-radius: 4px;font-family: $regular;line-height: 56px;width: 100%;
+    &:hover{opacity:0.8;}
+}
+
+.mainContainer{width:100%;max-width:1310px;padding:48px 120px;
+    .headerTitle{margin-bottom: 45px;;
+        h1{color:$black;font-size:2em;font-family:$regular;font-weight: 600;padding:0px;margin-bottom: 9px;;}
+        p{color:$purple;font-size: 1.1em;font-family: $regular;}
+    }
+    .mainInfo{display:flex;flex-wrap:wrap;margin-bottom:58px;
+        &-panelA{flex:0 0 100%;max-width: 42.15%;background:url(./assets/images/female-shoping.png);background-position: left center;background-repeat: no-repeat;background-size: cover;}
+        &-panelB{flex:0 0 100%;max-width: 42.15%;padding:48px;
+            h2{color:$black2;font-family:$regular;font-weight: 600;font-size:2em;margin-bottom: 35px;line-height: 1.3em;}
+            &_text{color:$black2;margin-bottom: 48px;font-size: 1em;line-height: 1.3em;}
+            &_button{margin-bottom: 41px;;}
+            &_info{color:$gray;font-size: 0.8em;margin-bottom: 0px;;}
+        }
+        &-panelC{flex:0 0 100%;max-width:15.7%;
+            &-icon{height:167.98px;background-position: center center !important;background-size: 100% !important;background-repeat:no-repeat !important;
+                &.iconCart{background:url(./assets/images/icon-cart.png);}
+                &.iconStore{background:url(./assets/images/icon-store.png);}
+                &.iconCircle{background:url(./assets/images/icon-circle.png);}
+            }
+        }
+    }
+    .characteristics{display:flex;flex-wrap:wrap;
+        &-side{flex: 0 0 100%;max-width: 50%;padding-right:74px;}
+        &-item{display:flex;flex-wrap:nowrap;align-items:flex-start;margin-bottom:24px;flex:0 0 100%;max-width:100%;
+            &_icon{font-size: 48px;line-height: 32px;margin-right:18px;
+                .iconCheck{color:$green;}
+            }
+            &_text{color:$gray;font-size:1.1em;line-height: 1.8em;}
+            &:last-child{margin-bottom: 0px;}
+        }
+        &-seeMore{flex:0 0 100%;max-width:100%;text-align:center;display:none;margin-bottom:32px;margin-top:8px;
+            &_button{color:$blue;background:transparent;border:none;font-size:1.1em;font-family:$regular;
+                .iconDown{color:$blue;font-size: 18px;line-height: 1.5em;}
+                &:hover{opacity:0.8;}
+            }
+        }
+        &-hideMobile{flex:0 0 100%;max-width:100%;display:none;
+            &_button{}
+        }
+    }
+}
+
+@media only screen and (max-width:1310px) {
+    .mainContainer{
+        .mainInfo{
+            &-panelA{max-width: 84.3%;order:0;}
+            &-panelB{max-width: 100%;order:2;padding:0px;margin-top: 14px;
+                h2{font-size: 1.5em;line-height: 2em;margin-bottom: 16px;}
+                &_text{line-height: 1.5em;margin-bottom: 19px;}
+                &_button{display: none;}
+                &_info{font-family: $regular;}
+            }
+            &-panelC{max-width: 15.7%;order:1;
+                &-icon{height:auto;padding-top:100%;}
+            }
+        }
+        .characteristics{
+            &-side{max-width: 100%;padding-right:0px;}
+            &-item{align-items: center;
+                &:last-child{margin-bottom: 24px;}
+                &.hideThis{display:none;}
+            }
+            &-seeMore{display:block}
+            &-hideMobile{display: block}
+        }
+    }
+}
+
+@media only screen and (max-width:767px) {
+    .mainContainer{padding:24px;
+        .characteristics{
+            &-side{max-width: 100%;padding-right:0px;}
+            &-item{align-items: center;
+                &:last-child{margin-bottom: 24px;}
+                &_text{font-size: 1em;}
+            }
+            &-seeMore{display:block}
+            &-hideMobile{display: block}
+        }
+    }
+}
+
+@media only screen and (max-width:450px) {
+    body{font-size: 16px;}
+    .mainContainer{padding:24px;
+        .headerTitle{margin-bottom: 24px;;
+            h1{margin-bottom: 0;font-size: 1.5em;line-height: 2em;}
+            p{display:none;}
+        }
+        .mainInfo{
+            &-panelA{max-width: calc(100% - 59px);order:0;}
+            &-panelB{max-width: 100%;order:2;padding:0px;margin-top: 14px;
+                h2{font-size: 1.5em;line-height: 2em;margin-bottom: 16px;}
+                &_text{line-height: 1.5em;margin-bottom: 19px;}
+                &_button{display: none;}
+                &_info{font-family: $regular;}
+            }
+            &-panelC{max-width: 59px;order:1;
+                &-icon{height:59px;}
+            }
+        }
+        .characteristics{
+            &-side{max-width: 100%;padding-right:0px;}
+            &-item{align-items: center;
+                &:last-child{margin-bottom: 24px;}
+            }
+            &-seeMore{display:block}
+            &-hideMobile{display: block}
+        }
+    }
+}
